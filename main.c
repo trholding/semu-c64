@@ -400,10 +400,10 @@ static int semu_start(int argc, char **argv)
     memset(&emu, 0, sizeof(emu));
 
 #if C64
-    printf("c-64 semu risc-v emulator\n");
-    printf("git object id: $Id$\n");
-    printf("emu state begin: %p, size: %04x\n", &emu, sizeof(emu));
-    printf("vm state begin: %p, size: %04x\n", &vm, sizeof(vm));
+//    printf("c-64 semu risc-v emulator\n\r");
+//    printf("git object id: $Id$\n");
+//    printf("emu state begin: %p, size: %04x\n", &emu, sizeof(emu));
+//    printf("vm state begin: %p, size: %04x\n", &vm, sizeof(vm));
 #endif
 
     uint32_t dtb_addr = RAM_SIZE - INITRD_SIZE - DTB_SIZE; /* Device tree */
@@ -452,13 +452,13 @@ static int semu_start(int argc, char **argv)
 
     pbase = reu_saved_state;
     checkpoint_loaded = load_all(&vm, &pbase);
-    printf("checkpoint loaded: %d\n", checkpoint_loaded);
-    printf("number of bytes deserialized: %d\n", pbase - reu_saved_state);
+//    printf("checkpoint loaded: %d\n", checkpoint_loaded);
+//    printf("number of bytes deserialized: %d\n", pbase - reu_saved_state);
 #else
     pbase = (uint8_t*)emu.ram + PERSISTENCE_BASEADR;
     checkpoint_loaded = load_all(&vm, &pbase);
-    printf("Checkpoint loaded: %d\n", checkpoint_loaded);
-    printf("Number of bytes deserialized: %ld\n", pbase - (uint8_t*)emu.ram - PERSISTENCE_BASEADR);
+//    printf("Checkpoint loaded: %d\n", checkpoint_loaded);
+//    printf("Number of bytes deserialized: %ld\n", pbase - (uint8_t*)emu.ram - PERSISTENCE_BASEADR);
 #endif
 
     if (!checkpoint_loaded) {

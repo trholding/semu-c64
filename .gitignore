@@ -2,7 +2,7 @@
 *.o
 *.o.d
 *.sw*
-semu
+
 
 # Linux-specific
 *.dtb
